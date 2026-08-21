@@ -1,0 +1,24 @@
+{
+  "name": "nexsearch",
+  "version": "1.0.0",
+  "description": "Advanced job search interface with live suggestions, category filters, voice input, and instant results — pure HTML/CSS/JS, no build step.",
+  "private": true,
+  "license": "MIT",
+  "author": "Pallab Chakraborty",
+  "homepage": "https://pallab-chakraborty.github.io/AdvanceJob-Search-Interface/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pallab-Chakraborty/AdvanceJob-Search-Interface.git"
+  },
+  "scripts": {
+    "start": "npx http-server . -p 8000 -c-1",
+    "serve": "npx http-server . -p 8000 -c-1"
+  },
+  "keywords": [
+    "job-search",
+    "search-interface",
+    "voice-search",
+    "static-site",
+    "vanilla-js"
+  ]
+}

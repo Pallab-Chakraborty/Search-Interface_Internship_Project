@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexSearch — Advanced Search</title>
+  <meta name="description" content="Smart job search interface with live suggestions, category filters, voice input, and instant results." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- Background -->
+<div class="mesh-bg"><div class="mesh-blob3"></div></div>
+<div class="grid-overlay"></div>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div class="logo">Nex<span>SEARCH</span></div>
+  <div class="topbar-right">
+    <button class="theme-btn" id="theme-btn" title="Toggle theme">
+      <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Page -->
+<div class="page" id="page">
+
+  <!-- Hero -->
+  <div class="hero" id="hero-block">
+    <div class="hero-eyebrow"><i class="fa-solid fa-bolt"></i> Advanced Search Interface</div>
+    <h1 class="hero-title">Find Anything,<br/><span class="accent">Instantly.</span></h1>
+    <p class="hero-sub">Smart search with live suggestions, filters, voice input, and lightning-fast results.</p>
+  </div>
+
+  <!-- Search Core -->
+  <div class="search-core" id="search-core">
+    <div class="search-wrap" id="search-wrap">
+
+      <!-- Category button -->
+      <button class="cat-btn" id="cat-btn">
+        <i class="fa-solid fa-layer-group" id="cat-icon-el" style="font-size:0.75rem"></i>
+        <span id="cat-label">Everything</span>
+        <i class="fa-solid fa-chevron-down chevron" id="cat-chevron"></i>
+      </button>
+
+      <div class="divider-line"></div>
+
+      <!-- Input area -->
+      <div class="search-input-wrap">
+        <input
+          class="search-input"
+          id="search-input"
+          type="text"
+          placeholder="Search for jobs, skills, topics…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="clear-btn" id="clear-btn" title="Clear">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button class="voice-btn" id="voice-btn" title="Voice search">
+          <i class="fa-solid fa-microphone" id="voice-icon"></i>
+        </button>
+      </div>
+
+      <button class="search-btn" id="search-btn" title="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+    </div><!-- /.search-wrap -->
+
+    <!-- Category dropdown -->
+    <div class="cat-dropdown" id="cat-dropdown"></div>
+
+    <!-- Suggestions panel -->
+    <div class="suggestions-panel" id="suggestions-panel"></div>
+
+  </div><!-- /.search-core -->
+
+  <!-- Filter chips -->
+  <div class="filter-row" id="filter-row"></div>
+
+  <!-- Recent searches row (shown on homepage) -->
+  <div class="recent-row" id="recent-row"></div>
+
+  <!-- Stats bar (shown after search) -->
+  <div class="stats-bar" id="stats-bar" style="display:none"></div>
+
+  <!-- Results -->
+  <div class="results-wrap" id="results-wrap"></div>
+
+  <!-- Pagination -->
+  <div class="pagination" id="pagination" style="display:none"></div>
+
+</div><!-- /.page -->
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-check-circle" style="color:var(--cyan)"></i>
+  <span id="toast-msg"></span>
+</div>
+
+
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/category.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/recent.js"></script>
+<script src="js/suggestions.js"></script>
+<script src="js/input.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/search.js"></script>
+<script src="js/results.js"></script>
+<script src="js/stats-pagination.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

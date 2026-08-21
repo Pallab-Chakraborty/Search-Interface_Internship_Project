@@ -1,0 +1,103 @@
+const CATEGORIES = [
+  { id: 'everything',  label: 'Everything',          icon: 'fa-solid fa-layer-group',    color: '#7c5cfc', count: '10k+' },
+  { id: 'software',    label: 'Software Dev',         icon: 'fa-solid fa-code',           color: '#3dd9eb', count: '2.4k' },
+  { id: 'web',         label: 'Web Development',      icon: 'fa-brands fa-html5',         color: '#ff7846', count: '1.8k' },
+  { id: 'data',        label: 'Data Analyst',         icon: 'fa-solid fa-chart-bar',      color: '#3deba8', count: '980'  },
+  { id: 'it',          label: 'IT Consultant',        icon: 'fa-solid fa-server',         color: '#f5c542', count: '640'  },
+  { id: 'network',     label: 'Network Admin',        icon: 'fa-solid fa-network-wired',  color: '#ff6b9d', count: '520'  },
+  { id: 'cloud',       label: 'Cloud & DevOps',       icon: 'fa-solid fa-cloud',          color: '#5bc0eb', count: '730'  },
+  { id: 'security',    label: 'Cybersecurity',        icon: 'fa-solid fa-shield-halved',  color: '#eb5b5b', count: '460'  },
+];
+
+const TRENDING = [
+  'React Developer', 'Python ML Engineer', 'Full Stack', 'AWS Architect',
+  'UI/UX Designer', 'DevOps Engineer', 'Blockchain', 'Data Science',
+];
+
+const RESULT_DATA = [
+  {
+    cat: 'software', icon: 'fa-solid fa-code', iconBg: 'rgba(61,217,235,0.12)', iconColor: '#3dd9eb',
+    source: 'Software Dev', badge: 'TRENDING', badgeBg: 'rgba(61,217,235,0.15)', badgeColor: '#3dd9eb',
+    title: 'Senior Full-Stack Developer — React & Node.js',
+    desc: 'Join a fast-growing fintech startup. You\'ll architect scalable microservices, lead a team of 4 engineers, and ship features used by 2M+ users. Remote-first culture.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Remote' }, { icon:'fa-solid fa-briefcase', text:'Full-time' }, { icon:'fa-solid fa-star', text:'4.8/5' }],
+    meta: { views:'3.4k', saved: false },
+  },
+  {
+    cat: 'data', icon: 'fa-solid fa-chart-line', iconBg: 'rgba(61,235,168,0.12)', iconColor: '#3deba8',
+    source: 'Data Science', badge: 'HOT', badgeBg: 'rgba(255,120,70,0.15)', badgeColor: '#ff7846',
+    title: 'Data Engineer — Pipeline Architecture & Analytics',
+    desc: 'Design and maintain high-throughput data pipelines processing 500GB/day. Expertise in Spark, Kafka, dbt, and Snowflake required. Work alongside ML research team.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Hybrid · NYC' }, { icon:'fa-solid fa-dollar-sign', text:'$140k–$175k' }, { icon:'fa-solid fa-clock', text:'Full-time' }],
+    meta: { views:'2.1k', saved: false },
+  },
+  {
+    cat: 'web', icon: 'fa-brands fa-figma', iconBg: 'rgba(245,100,100,0.1)', iconColor: '#ff7846',
+    source: 'Web Dev', badge: 'NEW', badgeBg: 'rgba(124,92,252,0.15)', badgeColor: '#9b7fff',
+    title: 'Frontend Engineer — Design Systems & Performance',
+    desc: 'Own our design system used across 8 products. You\'ll build pixel-perfect components in Next.js and Tailwind, audit Core Web Vitals, and collaborate closely with design.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Remote EU/US' }, { icon:'fa-solid fa-dollar-sign', text:'$110k–$145k' }, { icon:'fa-solid fa-star', text:'4.6/5' }],
+    meta: { views:'1.8k', saved: false },
+  },
+  {
+    cat: 'cloud', icon: 'fa-brands fa-aws', iconBg: 'rgba(91,192,235,0.12)', iconColor: '#5bc0eb',
+    source: 'Cloud & DevOps', badge: 'FEATURED', badgeBg: 'rgba(255,197,66,0.15)', badgeColor: '#f5c542',
+    title: 'Cloud Infrastructure Engineer — AWS & Kubernetes',
+    desc: 'Lead our cloud migration from on-prem to AWS. Manage EKS clusters, build CI/CD pipelines, implement cost optimization strategies. 99.99% uptime SLA.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'On-site · SF' }, { icon:'fa-solid fa-dollar-sign', text:'$155k–$190k' }, { icon:'fa-solid fa-clock', text:'Full-time' }],
+    meta: { views:'1.5k', saved: false },
+  },
+  {
+    cat: 'security', icon: 'fa-solid fa-shield-halved', iconBg: 'rgba(235,91,91,0.1)', iconColor: '#eb5b5b',
+    source: 'Cybersecurity', badge: 'URGENT', badgeBg: 'rgba(235,91,91,0.15)', badgeColor: '#eb5b5b',
+    title: 'Security Engineer — Penetration Testing & SOC',
+    desc: 'Conduct red team exercises, vulnerability assessments, and incident response for Fortune 500 clients. OSCP certification preferred. High-impact, fast-paced environment.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Hybrid · DC' }, { icon:'fa-solid fa-dollar-sign', text:'$130k–$165k' }, { icon:'fa-solid fa-star', text:'4.7/5' }],
+    meta: { views:'982', saved: false },
+  },
+  {
+    cat: 'network', icon: 'fa-solid fa-network-wired', iconBg: 'rgba(255,107,157,0.1)', iconColor: '#ff6b9d',
+    source: 'Network Admin', badge: '',
+    title: 'Senior Network Engineer — SD-WAN & Cisco',
+    desc: 'Design and manage enterprise network infrastructure for 50+ sites across North America. Experience with Cisco SD-WAN, BGP/OSPF routing, and network automation (Ansible/Python).',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'On-site · Chicago' }, { icon:'fa-solid fa-dollar-sign', text:'$120k–$150k' }, { icon:'fa-solid fa-clock', text:'Full-time' }],
+    meta: { views:'740', saved: false },
+  },
+  {
+    cat: 'it', icon: 'fa-solid fa-server', iconBg: 'rgba(245,197,66,0.1)', iconColor: '#f5c542',
+    source: 'IT Consultant', badge: 'CONTRACT',  badgeBg: 'rgba(245,197,66,0.12)', badgeColor: '#f5c542',
+    title: 'IT Infrastructure Consultant — Digital Transformation',
+    desc: 'Guide enterprise clients through digital transformation initiatives. Assess existing infrastructure, propose modernisation roadmaps, and lead vendor selection for ERP and CRM platforms.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Remote / Travel' }, { icon:'fa-solid fa-dollar-sign', text:'$95/hr' }, { icon:'fa-solid fa-clock', text:'Contract 6mo' }],
+    meta: { views:'610', saved: false },
+  },
+  {
+    cat: 'software', icon: 'fa-brands fa-python', iconBg: 'rgba(61,235,168,0.1)', iconColor: '#3deba8',
+    source: 'Software Dev', badge: 'REMOTE', badgeBg: 'rgba(61,235,168,0.12)', badgeColor: '#3deba8',
+    title: 'Python Backend Engineer — AI Infrastructure',
+    desc: 'Build the backend powering our AI research platform. FastAPI microservices, GPU orchestration, model serving at scale. Work directly with ML researchers to productionise models.',
+    tags: [{ icon:'fa-solid fa-location-dot', text:'Fully Remote' }, { icon:'fa-solid fa-dollar-sign', text:'$125k–$160k' }, { icon:'fa-solid fa-star', text:'4.9/5' }],
+    meta: { views:'2.7k', saved: false },
+  },
+];
+
+const SUGGEST_MAP = {
+  'react':     ['React Developer Jobs', 'React Native Engineer', 'React + TypeScript', 'React Performance Optimization'],
+  'python':    ['Python Backend Engineer', 'Python Data Scientist', 'Python ML Engineer', 'Python Automation'],
+  'java':      ['Java Backend Developer', 'Java Spring Boot Engineer', 'Java Microservices Architect'],
+  'cloud':     ['Cloud Architect AWS', 'Cloud DevOps Engineer', 'Cloud Security Specialist', 'GCP Engineer'],
+  'data':      ['Data Analyst Roles', 'Data Engineer Pipelines', 'Data Scientist ML', 'Data Governance Lead'],
+  'full':      ['Full Stack Developer', 'Full Stack React + Node', 'Full Stack Python'],
+  'network':   ['Network Administrator', 'Network Security Engineer', 'Network Architect'],
+  'security':  ['Cybersecurity Analyst', 'Security Penetration Tester', 'Security Operations Center'],
+  'frontend':  ['Frontend Engineer React', 'Frontend Performance', 'Frontend Design Systems'],
+  'backend':   ['Backend Node.js', 'Backend Python FastAPI', 'Backend Go Developer'],
+  'devops':    ['DevOps Engineer CI/CD', 'DevOps Kubernetes', 'DevOps Platform Engineer'],
+  'mobile':    ['Mobile iOS Engineer', 'Mobile Android Developer', 'React Native Mobile'],
+  'ui':        ['UI/UX Designer', 'UI Engineer Design Systems', 'UI Accessibility Specialist'],
+  'web':       ['Web Developer Full Stack', 'Web Performance Engineer', 'Web3 Developer'],
+  'ai':        ['AI Engineer LLMs', 'AI Infrastructure', 'AI Research Scientist', 'AI Product Manager'],
+  'machine':   ['Machine Learning Engineer', 'Machine Learning Ops', 'Machine Learning Research'],
+  'sql':       ['SQL Database Administrator', 'SQL Data Analyst', 'SQL Performance Tuning'],
+  'aws':       ['AWS Solutions Architect', 'AWS DevOps Engineer', 'AWS Security Specialist'],
+};
